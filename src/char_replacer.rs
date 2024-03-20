@@ -10,7 +10,7 @@ pub(crate) trait Replacer {
     fn replacement(&self) -> &str;
 }
 
-#[duplicate_item(SpecificReplacer; [EllipsesReplacer]; [OpeningQuotesReplacer]; [ClosingQuotesReplacer])]
+#[duplicate_item(SpecificReplacer; [EllipsesReplacer]; [OpeningQuotesReplacer]; [ClosingQuotesReplacer]; [ApostropheReplacer])]
 impl Replacer for SpecificReplacer {
     fn to_replace(&self) -> &Vec<String> {
         &self.to_replace
@@ -93,6 +93,27 @@ impl ClosingQuotesReplacer {
         to_replace.push(" » ".to_string());
         to_replace.push(" &raquo; ".to_string());
         return ClosingQuotesReplacer {
+            to_replace,
+            replacement,
+        };
+    }
+}
+
+/* -----------------------
+   | APOSTROPHE REPLACER |
+   ----------------------- */
+
+pub(crate) struct ApostropheReplacer {
+    to_replace: Vec<String>,
+    replacement: String,
+}
+
+impl crate::char_replacer::ApostropheReplacer {
+    pub(crate) fn new(replacement_str: &str) -> crate::char_replacer::ApostropheReplacer {
+        let replacement = replacement_str.to_string();
+        let mut to_replace = Vec::new();
+        to_replace.push("'".to_string());
+        return crate::char_replacer::ApostropheReplacer {
             to_replace,
             replacement,
         };
