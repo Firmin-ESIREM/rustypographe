@@ -1,4 +1,4 @@
-use crate::char_replacer::{ApostropheReplacer, ClosingQuotesReplacer, EllipsesReplacer, FindAndReplace, OpeningQuotesReplacer};
+use crate::char_replacer::{ApostropheReplacer, ClosingQuotesReplacer, EllipsesReplacer, FindAndReplace, NbspPunctuationMarkReplacer, OpeningQuotesReplacer};
 
 pub(crate) fn html_ellipses_replace(source: String) -> String {
     let replacer = EllipsesReplacer::new("&mldr;");
