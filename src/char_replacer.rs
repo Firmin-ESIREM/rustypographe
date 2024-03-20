@@ -1,14 +1,13 @@
 use duplicate::duplicate_item;
 
 
-pub trait FindAndReplace {
+pub(crate) trait FindAndReplace {
     fn find_and_replace_occurrences(&self, text: String) -> String;
 }
 
 pub(crate) trait Replacer {
     fn to_replace(&self) -> &Vec<String>;
     fn replacement(&self) -> &str;
-//    fn occurences(&self) -> &Vec<Vec<u8>>;
 }
 
 #[duplicate_item(SpecificReplacer; [EllipsesReplacer]; [OpeningQuotesReplacer]; [ClosingQuotesReplacer])]
