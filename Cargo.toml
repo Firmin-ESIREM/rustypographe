@@ -1,8 +1,13 @@
 [package]
-name = "rustypographe_simple"
-version = "0.1.0"
+name = "rustypographe"
+version = "0.0.1"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+authors = ["Firmin Launay <Firmin_Launay@etu.u-bourgogne.fr>"]
+description = "Typography checker and enforcer for the French language."
+readme = "README.md"
+repository = "https://github.com/Firmin-ESIREM/rustypographe"
+license = "MIT"
+license-file = "LICENSE"
 
 [dependencies]
+duplicate = "1.0.0"
